@@ -19,8 +19,8 @@ const startServer = async () => {
     await db.authenticate();
     console.log('Conexion exitosa a la DB');
     
-    app.listen(3001, () => {
-      console.log('Server UP running in http://localhost:3001/');
+    app.listen(3009, () => {
+      console.log('Server UP running in http://localhost:3009/');
     });
   } catch (error) {
     console.log('Error de conexion a la DB:', error.message);

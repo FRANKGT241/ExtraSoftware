@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import db from './DB/database.js';
 import InventarioRouter from './routers/routerProducts.js'
+import MedicamentosRouter from './routers/routerMedicamentos.js'
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -12,6 +13,7 @@ app.use(express.json());
 //app.use('/api/clientes', routerCliente);
 
 app.use('/api/productos', InventarioRouter);
+app.use('/api/medicamentos', MedicamentosRouter);
 
 // Conexion a la DB
 const startServer = async () => {
@@ -26,5 +28,6 @@ const startServer = async () => {
     console.log('Error de conexion a la DB:', error.message);
   }
 };
+
 
 startServer();

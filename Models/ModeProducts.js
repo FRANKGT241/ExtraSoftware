@@ -1,9 +1,9 @@
 import db from "../DB/database.js"
-
 import { DataTypes } from "sequelize";
+import ModeMedicamentos from "./ModeMedicamentos.js";
 
-const  ModeProducts = db.define('inventario', {
-    IdInventario : { 
+const ModeProducts = db.define('inventario', {
+    IdInventario: { 
         type: DataTypes.INTEGER, 
         primaryKey: true, 
         autoIncrement: true,
@@ -14,5 +14,6 @@ const  ModeProducts = db.define('inventario', {
     Estado:{ type: DataTypes.BOOLEAN } 
  }, { tableName: 'inventario' }); 
  
+ ModeProducts.belongsTo(ModeMedicamentos, { foreignKey: 'idMedicamento' }); // Esto establece la relación con el modelo de medicamentos
 
 export default  ModeProducts
